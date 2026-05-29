@@ -1,33 +1,3 @@
-// using UnityEngine;
-
-// public class DiceController : MonoBehaviour
-// {
-//     Rigidbody rb;
-
-//     void Start()
-//     {
-//         rb = GetComponent<Rigidbody>();
-//     }
-
-//     void Update()
-//     {
-//         if (Input.GetKeyDown(KeyCode.Space))
-//         {
-//             RollDice();
-//         }
-//     }
-
-//     void RollDice()
-//     {
-//         // Reset motion
-//         rb.linearVelocity = Vector3.zero;
-//         rb.angularVelocity = Vector3.zero;
-
-//         // Add jump + spin
-//         rb.AddForce(Vector3.up * 7f, ForceMode.Impulse);
-//         rb.AddTorque(Random.insideUnitSphere * 15f, ForceMode.Impulse);
-//     }
-// }
 using UnityEngine;
 using System.Collections;
 
