@@ -12,10 +12,23 @@ public class DiceController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            RollDice(Random.Range(1, 7));
-        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            RollDice(1);
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            RollDice(2);
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            RollDice(3);
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+            RollDice(4);
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+            RollDice(5);
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+            RollDice(6);
     }
 
     public void RollDice(int targetNumber)
@@ -23,15 +36,26 @@ public class DiceController : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        rb.AddForce(Vector3.up * 7f, ForceMode.Impulse);
-        rb.AddTorque(Random.insideUnitSphere * 15f, ForceMode.Impulse);
+        rb.AddForce(
+            new Vector3(
+                Random.Range(-2f, 2f),
+                7f,
+                Random.Range(3f, 6f)
+            ),
+            ForceMode.Impulse
+        );
+
+        rb.AddTorque(
+            Random.insideUnitSphere * 30f,
+            ForceMode.Impulse
+        );
 
         StartCoroutine(SettleDice(targetNumber));
     }
 
     IEnumerator SettleDice(int number)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
 
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
