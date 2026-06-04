@@ -3,7 +3,8 @@ using System.Collections;
 
 public class DiceController : MonoBehaviour
 {
-    Rigidbody rb;
+    private Rigidbody rb;
+    private Coroutine settleCoroutine;
 
     void Start()
     {
@@ -33,24 +34,29 @@ public class DiceController : MonoBehaviour
 
     public void RollDice(int targetNumber)
     {
+        if (settleCoroutine != null)
+            StopCoroutine(settleCoroutine);
+
+        // transform.position = new Vector3(0f, 1f, 0f);
+
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
         rb.AddForce(
             new Vector3(
-                Random.Range(-2f, 2f),
-                7f,
-                Random.Range(3f, 6f)
+                Random.Range(-1f, 1f),
+                4f,
+                Random.Range(-1f, 1f)
             ),
             ForceMode.Impulse
         );
 
         rb.AddTorque(
-            Random.insideUnitSphere * 30f,
+            Random.insideUnitSphere * 20f,
             ForceMode.Impulse
         );
 
-        StartCoroutine(SettleDice(targetNumber));
+        settleCoroutine = StartCoroutine(SettleDice(targetNumber));
     }
 
     IEnumerator SettleDice(int number)
@@ -61,6 +67,8 @@ public class DiceController : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
 
         transform.rotation = GetRotationForNumber(number);
+
+        Debug.Log("Target Number: " + number);
     }
 
     Quaternion GetRotationForNumber(int num)
