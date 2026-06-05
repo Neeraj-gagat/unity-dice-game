@@ -90,7 +90,7 @@ public class DiceController : MonoBehaviour
             ForceMode.Impulse
         );
 
-        settleCoroutine = StartCoroutine(SettleDice(targetNumber));
+        // settleCoroutine = StartCoroutine(SettleDice(targetNumber));
     }
 
     // IEnumerator SettleDice(int number)
@@ -105,7 +105,7 @@ public class DiceController : MonoBehaviour
     //     Debug.Log("Target Number: " + number);
     // }
 
-    StartCoroutine(SettleDice(targetNumber));
+    // StartCoroutine(SettleDice(targetNumber));
 
     Quaternion GetRotationForNumber(int num)
     {
