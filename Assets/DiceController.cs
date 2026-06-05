@@ -32,12 +32,46 @@ public class DiceController : MonoBehaviour
             RollDice(6);
     }
 
+    void SetCenterOfMassForTarget(int target)
+    {
+        float bias = 0.25f;
+
+        switch (target)
+        {
+            case 1:
+                rb.centerOfMass = Vector3.down * bias;
+                break;
+
+            case 2:
+                rb.centerOfMass = Vector3.up * bias;
+                break;
+
+            case 3:
+                rb.centerOfMass = Vector3.left * bias;
+                break;
+
+            case 4:
+                rb.centerOfMass = Vector3.right * bias;
+                break;
+
+            case 5:
+                rb.centerOfMass = Vector3.back * bias;
+                break;
+
+            case 6:
+                rb.centerOfMass = Vector3.forward * bias;
+                break;
+        }
+    }
+
     public void RollDice(int targetNumber)
     {
         if (settleCoroutine != null)
             StopCoroutine(settleCoroutine);
 
         // transform.position = new Vector3(0f, 1f, 0f);
+
+        SetCenterOfMassForTarget(targetNumber);
 
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -59,17 +93,19 @@ public class DiceController : MonoBehaviour
         settleCoroutine = StartCoroutine(SettleDice(targetNumber));
     }
 
-    IEnumerator SettleDice(int number)
-    {
-        yield return new WaitForSeconds(2f);
+    // IEnumerator SettleDice(int number)
+    // {
+    //     yield return new WaitForSeconds(2f);
 
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+    //     rb.linearVelocity = Vector3.zero;
+    //     rb.angularVelocity = Vector3.zero;
 
-        transform.rotation = GetRotationForNumber(number);
+    //     transform.rotation = GetRotationForNumber(number);
 
-        Debug.Log("Target Number: " + number);
-    }
+    //     Debug.Log("Target Number: " + number);
+    // }
+
+    StartCoroutine(SettleDice(targetNumber));
 
     Quaternion GetRotationForNumber(int num)
     {
