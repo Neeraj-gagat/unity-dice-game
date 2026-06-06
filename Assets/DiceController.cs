@@ -34,7 +34,7 @@ public class DiceController : MonoBehaviour
 
     void SetCenterOfMassForTarget(int target)
     {
-        float bias = 0.25f;
+        float bias = 0.12f;
 
         switch (target)
         {
@@ -66,31 +66,28 @@ public class DiceController : MonoBehaviour
 
     public void RollDice(int targetNumber)
     {
-        if (settleCoroutine != null)
-            StopCoroutine(settleCoroutine);
-
-        // transform.position = new Vector3(0f, 1f, 0f);
-
         SetCenterOfMassForTarget(targetNumber);
 
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        rb.AddForce(
-            new Vector3(
-                Random.Range(-1f, 1f),
-                4f,
-                Random.Range(-1f, 1f)
-            ),
-            ForceMode.Impulse
+        // Strong forward throw
+        Vector3 throwForce = new Vector3(
+            Random.Range(-3f, 3f),
+            Random.Range(7f, 10f),
+            Random.Range(5f, 9f)
         );
 
-        rb.AddTorque(
-            Random.insideUnitSphere * 20f,
-            ForceMode.Impulse
+        rb.AddForce(throwForce, ForceMode.Impulse);
+
+        // Aggressive spin
+        Vector3 spinTorque = new Vector3(
+            Random.Range(-40f, 40f),
+            Random.Range(-40f, 40f),
+            Random.Range(-40f, 40f)
         );
 
-        // settleCoroutine = StartCoroutine(SettleDice(targetNumber));
+        rb.AddTorque(spinTorque, ForceMode.Impulse);
     }
 
     // IEnumerator SettleDice(int number)
