@@ -90,19 +90,6 @@ public class DiceController : MonoBehaviour
         rb.AddTorque(spinTorque, ForceMode.Impulse);
     }
 
-    // IEnumerator SettleDice(int number)
-    // {
-    //     yield return new WaitForSeconds(2f);
-
-    //     rb.linearVelocity = Vector3.zero;
-    //     rb.angularVelocity = Vector3.zero;
-
-    //     transform.rotation = GetRotationForNumber(number);
-
-    //     Debug.Log("Target Number: " + number);
-    // }
-
-    // StartCoroutine(SettleDice(targetNumber));
 
     Quaternion GetRotationForNumber(int num)
     {
