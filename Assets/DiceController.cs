@@ -71,20 +71,20 @@ public class DiceController : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        // Strong forward throw
+                // Consistent throw forward
         Vector3 throwForce = new Vector3(
-            Random.Range(-3f, 3f),
-            Random.Range(7f, 10f),
-            Random.Range(5f, 9f)
+            0f,     // No sideways movement
+            8f,     // Upward force
+            30f      // Forward force
         );
 
         rb.AddForce(throwForce, ForceMode.Impulse);
 
-        // Aggressive spin
+        // Consistent forward spin
         Vector3 spinTorque = new Vector3(
-            Random.Range(-40f, 40f),
-            Random.Range(-40f, 40f),
-            Random.Range(-40f, 40f)
+            25f,    // Forward tumbling
+            0f,
+            0f
         );
 
         rb.AddTorque(spinTorque, ForceMode.Impulse);
