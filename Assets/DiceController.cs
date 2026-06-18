@@ -34,7 +34,7 @@ public class DiceController : MonoBehaviour
 
     void SetCenterOfMassForTarget(int target)
     {
-        float bias = 0.12f;
+        float bias = 0.08f;
 
         switch (target)
         {
