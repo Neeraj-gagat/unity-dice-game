@@ -804,7 +804,7 @@ PrefabInstance:
       addedObject: {fileID: 898638363}
     - targetCorrespondingSourceObject: {fileID: 6801955793903224657, guid: 0d2b9188252a78b4298fb8e34d9229ee, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 898638364}
+      addedObject: {fileID: 898638369}
   m_SourcePrefab: {fileID: 100100000, guid: 0d2b9188252a78b4298fb8e34d9229ee, type: 3}
 --- !u!1 &898638362 stripped
 GameObject:
@@ -838,7 +838,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &898638364
+--- !u!114 &898638369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -847,9 +847,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 898638362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ee8ad42f333070b5b72bd76343d4734, type: 3}
+  m_Script: {fileID: 11500000, guid: dc554138f77d4162bb26ca7af6e2954b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DiceController
+  m_EditorClassIdentifier: Assembly-CSharp::DiceController2
 --- !u!1 &1034325882
 GameObject:
   m_ObjectHideFlags: 0

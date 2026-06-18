@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DiceController : MonoBehaviour
+public class DiceController2 : MonoBehaviour
 {
     private Rigidbody rb;
     private Coroutine settleCoroutine;
@@ -14,22 +14,22 @@ public class DiceController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            RollDice(1);
+            RollDice2(1);
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
-            RollDice(2);
+            RollDice2(2);
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
-            RollDice(3);
+            RollDice2(3);
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
-            RollDice(4);
+            RollDice2(4);
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
-            RollDice(5);
+            RollDice2(5);
 
         if (Input.GetKeyDown(KeyCode.Alpha6))
-            RollDice(6);
+            RollDice2(6);
     }
 
     void SetCenterOfMassForTarget(int target)
@@ -64,7 +64,7 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    public void RollDice(int targetNumber)
+    public void RollDice2(int targetNumber)
     {
         SetCenterOfMassForTarget(targetNumber);
 
@@ -74,8 +74,8 @@ public class DiceController : MonoBehaviour
                 // Consistent throw forward
         Vector3 throwForce = new Vector3(
             0f,     // No sideways movement
-            8f,     // Upward force
-            40f      // Forward force
+            5f,     // Upward force
+            50f      // Forward force
         );
 
         rb.AddForce(throwForce, ForceMode.Impulse);
