@@ -34,7 +34,7 @@ public class DiceController2 : MonoBehaviour
 
     void SetCenterOfMassForTarget(int target)
     {
-        float bias = 0.08f;
+        float bias = 0.25f;
 
         switch (target)
         {
@@ -73,7 +73,7 @@ public class DiceController2 : MonoBehaviour
 
                 // Consistent throw forward
         Vector3 throwForce = new Vector3(
-            0f,     // No sideways movement
+            -5f,     // No sideways movement
             5f,     // Upward force
             50f      // Forward force
         );
